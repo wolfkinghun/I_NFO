@@ -65,7 +65,7 @@ export const Home = () => {
       ].map((text, idx) => (
         <li key={idx}>
           <button
-            onClick={idx === 0 ? () => navigate('/elsokerdessor') : undefined}
+            onClick={idx === 0 ? () => navigate('/elsokerdessor') : () => navigate('/underwork')}
             className="w-full bg-rose-500 text-white py-2 px-4 rounded-md shadow hover:bg-rose-600 transition duration-300 text-sm"
           >
             {text}

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { ElsoKerdesek as allQuestions } from './ElsoKerdesek.js';
+import { useNavigate } from 'react-router-dom';
 
 export const Elso = () => {
   const [difficulty, setDifficulty] = useState(null);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const navigate  = useNavigate()
 
   const handleDifficultySelect = (level) => {
     let questionsCopy = [...allQuestions];
@@ -30,8 +32,15 @@ export const Elso = () => {
   };
 
   if (!difficulty) {
-    return (
-      <div className="h-screen flex flex-col items-center justify-center bg-slate-900 text-white">
+    return (<>
+        
+      <div className="h-screen flex flex-col items-center justify-center bg-slate-900 text-white ">
+          <button
+        onClick={() => navigate('/')}
+        className="bg-violet-800 hover:bg-violet-900 absolute left-5 top-5 text-white font-semibold py-2 px-3 rounded-2xl transition duration-200 shadow-lg"
+      >
+        Vissza a főoldalra
+      </button>
         <h1 className="text-3xl mb-6">Válassz nehézségi szintet</h1>
         <div className="flex gap-6">
           <button
@@ -48,11 +57,20 @@ export const Elso = () => {
           </button>
         </div>
       </div>
+      </>
     );
   }
 
   return (
+    
     <div className="min-h-screen bg-slate-900 p-6 text-white flex flex-col items-center">
+        
+          <button
+        onClick={() => navigate('/')}
+        className="bg-violet-800 hover:bg-violet-900 absolute left-5 top-5 text-white font-semibold py-2 px-3 rounded-2xl transition duration-200 shadow-lg"
+      >
+        Vissza a főoldalra
+      </button>
       <h1 className="text-4xl mb-10">Kvíz</h1>
 
       <div className="space-y-10 w-full max-w-3xl">
@@ -92,6 +110,7 @@ export const Elso = () => {
           </div>
         ))}
       </div>
+     
 
       {!submitted && (
         <button

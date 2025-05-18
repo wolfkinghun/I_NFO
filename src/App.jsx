@@ -3,11 +3,13 @@ import './App.css'
 import { Home } from '../components/Home'
 import { Elso } from '../questions/Elso'
 import { Footer } from '../components/Footer'
+import { PageUnderWork } from './components/PageUnderWork'
 
 
 const router=createBrowserRouter([
   {path:'/',element:<Home />},
-  {path:'/elsokerdessor', element: <Elso/>}
+  {path:'/elsokerdessor', element: <Elso/>},
+  {path:'/underwork',element:<PageUnderWork />},
 
 ])
 
